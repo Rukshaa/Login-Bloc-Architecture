@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:login_bloc/src/mixins/auth_validation_mixing.dart';
 
-class AuthBloc with AuthValidationMixin {
+class _AuthBloc with AuthValidationMixin {
 
   final StreamController<String> _emailController = StreamController();
   final StreamController<String>  _passwordController = StreamController();
