@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-
 class AuthValidationMixin {
   final emailValidator =
   StreamTransformer<String,String>.fromHandlers(
@@ -20,7 +18,7 @@ class AuthValidationMixin {
         sink.add(password);
 
       } else{
-        sink.addError("Password must be at least 5 characters long")
+        sink.addError("Password must be at least 5 characters long");
       }
     }
   );

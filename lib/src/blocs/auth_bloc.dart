@@ -27,3 +27,5 @@ void dispose(){
   _genderController.close();
 }
 }
+
+final bloc =_AuthBloc();
