@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_bloc/src/blocs/auth_bloc_provider.dart';
 import 'package:login_bloc/src/screens/login_screen.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +12,9 @@ class App extends StatelessWidget {
      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: LoginScreen(),
+          body: AuthBLocProvider(
+              child: LoginScreen(),
+          ),
         ),
       ),
     );

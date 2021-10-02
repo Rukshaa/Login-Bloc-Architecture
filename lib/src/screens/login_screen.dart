@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_bloc/src/blocs/auth_bloc.dart';
+import 'package:login_bloc/src/blocs/auth_bloc_provider.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({Key? key}) : super(key: key);
@@ -7,15 +8,16 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   AuthBloc bloc = AuthBLocProvider.of(context);
     return Container(
       margin: EdgeInsets.all(16),
       child: Column(
         children: [
-          buildEmailField(),
+          buildEmailField(bloc),
           SizedBox(height: 16),
-          buildPasswordField(),
+          buildPasswordField(bloc),
           SizedBox(height: 16),
-          buildGenderDropdown(),
+          buildGenderDropdown(bloc),
           SizedBox(height: 16),
           buildSubmitButton(),
 
@@ -24,7 +26,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget buildEmailField() {
+  Widget buildEmailField(AuthBloc bloc) {
     return StreamBuilder(
       stream: bloc.emailStream,
       builder: (context, AsyncSnapshot<String> snapshot) {
@@ -45,7 +47,7 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-  Widget buildPasswordField(){
+  Widget buildPasswordField(AuthBloc bloc){
     return StreamBuilder(
       stream: bloc.passwordStream,
       builder: (context, AsyncSnapshot<String> snapshot) {
@@ -66,7 +68,7 @@ class LoginScreen extends StatelessWidget {
 
     }
 
-  Widget buildGenderDropdown() {
+  Widget buildGenderDropdown(AuthBloc bloc) {
     return StreamBuilder(
       stream: bloc.genderStream,
       builder: (context, AsyncSnapshot<String> snapshot) {
